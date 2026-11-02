@@ -135,7 +135,8 @@ Unnecessary movement = -2
 
 ## Graphical Representation
 
-<img width="1033" height="766" alt="Screenshot 2026-07-29 211634" src="https://github.com/user-attachments/assets/f9107d80-cc74-4651-911d-9989b0b0423b" />
+<img width="1408" height="768" alt="Gemini_Generated_Image_o0nmrlo0nmrlo0nm" src="https://github.com/user-attachments/assets/5c13829f-1809-4bcb-9920-0f79d03cffb3" />
+
 
 
 ---
@@ -144,45 +145,45 @@ Unnecessary movement = -2
 ```
 # MDP Representation using Python
 
-print("Name: shruthi D N")
-print("Register Number: 212223240155")
+print("Name: [Your Name]")
+print("Register Number: [Your Register Number]")
 
-states = ["Clean Area", "Dirty Area", "Obstacle Detected"]
+states = ["Shelf Empty", "Item Loaded", "Path Blocked"]
 
 actions = [
     "Move Forward",
     "Turn Left",
     "Turn Right",
-    "Clean Area"
+    "Pick Item"
 ]
 
 transition_probability = {
-    ("Dirty Area", "Clean Area"): {
-        "Clean Area": 0.9,
-        "Dirty Area": 0.1
+    ("Shelf Empty", "Pick Item"): {
+        "Item Loaded": 0.85,
+        "Shelf Empty": 0.15
     },
-    ("Clean Area", "Move Forward"): {
-        "Dirty Area": 0.6,
-        "Clean Area": 0.4
+    ("Item Loaded", "Move Forward"): {
+        "Shelf Empty": 0.5,
+        "Item Loaded": 0.5
     },
-    ("Dirty Area", "Move Forward"): {
-        "Obstacle Detected": 0.2,
-        "Dirty Area": 0.8
+    ("Shelf Empty", "Move Forward"): {
+        "Path Blocked": 0.25,
+        "Shelf Empty": 0.75
     },
-    ("Obstacle Detected", "Turn Right"): {
-        "Dirty Area": 0.7,
-        "Obstacle Detected": 0.3
+    ("Path Blocked", "Turn Right"): {
+        "Shelf Empty": 0.6,
+        "Path Blocked": 0.4
     }
 }
 
 rewards = {
-    ("Dirty Area", "Clean Area", "Clean Area"): 10,
-    ("Clean Area", "Move Forward", "Dirty Area"): 2,
-    ("Dirty Area", "Move Forward", "Obstacle Detected"): -10,
-    ("Obstacle Detected", "Turn Right", "Dirty Area"): 5
+    ("Shelf Empty", "Pick Item", "Item Loaded"): 15,
+    ("Item Loaded", "Move Forward", "Shelf Empty"): 3,
+    ("Shelf Empty", "Move Forward", "Path Blocked"): -12,
+    ("Path Blocked", "Turn Right", "Shelf Empty"): 4
 }
 
-discount_factor = 0.9
+discount_factor = 0.95
 
 print("States:", states)
 print("Actions:", actions)
@@ -193,19 +194,19 @@ print("Discount Factor:", discount_factor)
 ---
 ## Output
 ```
-Name: shruthi D N
-Register Number: 212223240155
-States: ['Clean Area', 'Dirty Area', 'Obstacle Detected']
-Actions: ['Move Forward', 'Turn Left', 'Turn Right', 'Clean Area']
-Transition Probability: {('Dirty Area', 'Clean Area'): {'Clean Area': 0.9, 'Dirty Area': 0.1}, ('Clean Area', 'Move Forward'): {'Dirty Area': 0.6, 'Clean Area': 0.4}, ('Dirty Area', 'Move Forward'): {'Obstacle Detected': 0.2, 'Dirty Area': 0.8}, ('Obstacle Detected', 'Turn Right'): {'Dirty Area': 0.7, 'Obstacle Detected': 0.3}}
-Rewards: {('Dirty Area', 'Clean Area', 'Clean Area'): 10, ('Clean Area', 'Move Forward', 'Dirty Area'): 2, ('Dirty Area', 'Move Forward', 'Obstacle Detected'): -10, ('Obstacle Detected', 'Turn Right', 'Dirty Area'): 5}
-Discount Factor: 0.9
+Name: Mohamed Nadheem N
+Register Number: 212223240091
+States: ['Shelf Empty', 'Item Loaded', 'Path Blocked']
+Actions: ['Move Forward', 'Turn Left', 'Turn Right', 'Pick Item']
+Transition Probability: {('Shelf Empty', 'Pick Item'): {'Item Loaded': 0.85, 'Shelf Empty': 0.15}, ('Item Loaded', 'Move Forward'): {'Shelf Empty': 0.5, 'Item Loaded': 0.5}, ('Shelf Empty', 'Move Forward'): {'Path Blocked': 0.25, 'Shelf Empty': 0.75}, ('Path Blocked', 'Turn Right'): {'Shelf Empty': 0.6, 'Path Blocked': 0.4}}
+Rewards: {('Shelf Empty', 'Pick Item', 'Item Loaded'): 15, ('Item Loaded', 'Move Forward', 'Shelf Empty'): 3, ('Shelf Empty', 'Move Forward', 'Path Blocked'): -12, ('Path Blocked', 'Turn Right', 'Shelf Empty'): 4}
+Discount Factor: 0.95
 ```
 
 ---
 
 ## Result
 
-The Robot Vacuum Cleaner was successfully represented as a Markov Decision Process (MDP) by defining its state space, action space, transition probabilities, reward function, graphical representation, and Python implementation. This model demonstrates how reinforcement learning can be applied to enable a robot vacuum cleaner to clean efficiently, avoid obstacles, conserve battery power, and maximize long-term cleaning performance.
+The Autonomous Warehouse Inventory Robot was successfully represented as a Markov Decision Process (MDP) by defining its state space, action space, transition probabilities, reward function, graphical representation, and Python implementation. This model demonstrates how reinforcement learning can be applied to enable a warehouse robot to retrieve items efficiently, avoid blocked paths, optimize routing, and maximize long-term operational performance.
 
 ---
